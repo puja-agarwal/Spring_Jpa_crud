@@ -12,16 +12,22 @@ public class backgroundsync {
 	
 	@Id	
 	 private int interview_id;
+	
 	private String applicant_name;
 	
-	 private String email_id;
+	private String email_id;
 	 private int round_id;
 	 @JsonFormat(pattern="yyyy-MM-dd",shape=JsonFormat.Shape.STRING)
+	 
 	 @Column(name="time")
 	 private String time;
+	 
 	 @Column(name="date")
 	 @JsonFormat(pattern="HH:mm:ss",shape=JsonFormat.Shape.STRING)
+	 
 	 private String date;
+	 
+	 private String final_verdict;
 	 
 	 public backgroundsync(int interview_id, String applicant_name, String email_id, int round_id, String time,
 			String date, String final_verdict) {
@@ -40,7 +46,7 @@ public class backgroundsync {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	private String final_verdict;
+	
 	public int getInterview_id() {
 		return interview_id;
 	}
