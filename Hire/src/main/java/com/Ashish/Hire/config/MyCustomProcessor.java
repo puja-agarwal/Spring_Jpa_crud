@@ -15,15 +15,15 @@ public class MyCustomProcessor implements ItemProcessor<backgroundsync, turbodat
 	public turbodata process(backgroundsync bsync) throws Exception {
 		System.out.println("MyBatchProcessor : Processing data : "+bsync);
 		turbodata tdata = new turbodata();
-		
-		tdata.setDate(bsync.getDate());
-		tdata.setFinal_verdict(bsync.getFinal_verdict());
 		tdata.setInterview_id(bsync.getInterview_id());
+		tdata.setApplicant_name(bsync.getApplicant_name());
 		tdata.setEmail_id(bsync.getEmail_id());
+		tdata.setFinal_verdict(bsync.getFinal_verdict());
 		tdata.setRound_id(bsync.getRound_id());
+		tdata.setDate(bsync.getDate());
 		tdata.setTime(bsync.gettime());
-		tdata.setDate(bsync.getDate());
-		tdata.setDate(bsync.getDate());
+		
+//		
 		return tdata;
 	}
 

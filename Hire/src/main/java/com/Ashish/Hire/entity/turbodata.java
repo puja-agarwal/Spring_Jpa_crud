@@ -2,6 +2,8 @@ package com.Ashish.Hire.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -10,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class turbodata {
 	
 	@Id	
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	 private int interview_id;
 	
 	private String applicant_name;
@@ -29,12 +32,7 @@ public class turbodata {
 	 
 	 private String final_verdict;
 	
-	public String getFinal_verdict() {
-		return final_verdict;
-	}
-	public void setFinal_verdict(String final_verdict) {
-		this.final_verdict = final_verdict;
-	}
+	
 	public turbodata() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -66,6 +64,13 @@ public class turbodata {
 	}
 	public void setEmail_id(String email_id) {
 		this.email_id = email_id;
+	}
+	
+	public String getFinal_verdict() {
+		return final_verdict;
+	}
+	public void setFinal_verdict(String final_verdict) {
+		this.final_verdict = final_verdict;
 	}
 	public int getRound_id() {
 		return round_id;
