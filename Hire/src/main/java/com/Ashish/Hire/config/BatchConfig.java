@@ -74,7 +74,7 @@ public class BatchConfig {
 	@Bean
 	public Step createStep() {
 		return stepBuilderFactory.get("MyStep")
-				.<backgroundsync, turbodata> chunk(1)
+				.<turbodata,backgroundsync> chunk(1)
 				.reader(myCustomReader)
 				.processor(myCustomProcessor)
 				.writer(myCustomWriter)

@@ -25,7 +25,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Ashish.Hire.entity.backgroundsync;
+import com.Ashish.Hire.entity.turbodata;
 import com.Ashish.Hire.services.service;
+
 
 @SpringBootApplication
 @EnableScheduling
@@ -45,6 +47,11 @@ public class Mycontroller {
 	public backgroundsync backgoundSyncData( @RequestBody backgroundsync bsync) {
 		return this.interviewService.backgoundSyncData(bsync);
 		}
+	
+	@PostMapping("/save-turbodata")
+	 public turbodata turboSyncData(@RequestBody turbodata tdata ) {
+		 return this.interviewService.turboSyncData(tdata);
+	 }
 	
 
 }

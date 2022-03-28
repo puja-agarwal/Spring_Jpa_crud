@@ -9,22 +9,22 @@ import com.Ashish.Hire.entity.turbodata;
 
 
 @Component
-public class MyCustomProcessor implements ItemProcessor<backgroundsync, turbodata> {
+public class MyCustomProcessor implements ItemProcessor<turbodata,backgroundsync> {
 
 	@Override
-	public turbodata process(backgroundsync bsync) throws Exception {
-		System.out.println("MyBatchProcessor : Processing data : "+bsync);
-		turbodata tdata = new turbodata();
-		tdata.setInterview_id(bsync.getInterview_id());
-		tdata.setApplicant_name(bsync.getApplicant_name());
-		tdata.setEmail_id(bsync.getEmail_id());
-		tdata.setFinal_verdict(bsync.getFinal_verdict());
-		tdata.setRound_id(bsync.getRound_id());
-		tdata.setDate(bsync.getDate());
-		tdata.setTime(bsync.gettime());
+	public backgroundsync process(turbodata tdata) throws Exception {
+		System.out.println("MyBatchProcessor : Processing data : "+tdata);
+		backgroundsync bsync = new backgroundsync();
+		bsync.setInterview_id(tdata.getInterview_id());
+		bsync.setApplicant_name(tdata.getApplicant_name());
+		bsync.setEmail_id(tdata.getEmail_id());
+		bsync.setFinal_verdict(tdata.getFinal_verdict());
+		bsync.setRound_id(tdata.getRound_id());
+		bsync.setDate(tdata.getDate());
+		bsync.settime(tdata.getTime());
 		
 //		
-		return tdata;
+		return bsync;
 	}
 
 

@@ -16,35 +16,36 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.Ashish.Hire.entity.backgroundsync;
+import com.Ashish.Hire.entity.turbodata;
 
 
 @Component
-public class MyCustomReader extends JdbcCursorItemReader<backgroundsync> implements ItemReader<backgroundsync>{
+public class MyCustomReader extends JdbcCursorItemReader<turbodata> implements ItemReader<turbodata>{
 	
 	public MyCustomReader(@Autowired DataSource primaryDataSource) {
 		setDataSource(primaryDataSource);
-		setSql("SELECT interview_id,applicant_name,email_id,final_verdict,round_id,date,time FROM backgroundsync");
+		setSql("SELECT interview_id,applicant_name,email_id,final_verdict,round_id,date,time FROM turbodata");
 				 
 		setFetchSize(100);
-		setRowMapper(new bsyncRowMapper());
+		setRowMapper(new turboRowMapper());
 	}
 	
-	public class bsyncRowMapper implements RowMapper<backgroundsync> {
+	public class turboRowMapper implements RowMapper<turbodata> {
 		@Override
-		public backgroundsync mapRow(ResultSet rs, int rowNum) throws SQLException {
-			backgroundsync bsync  = new backgroundsync();
-			bsync.setInterview_id(rs.getInt("interview_id"));
-			bsync.setApplicant_name(rs.getString("applicant_name"));
-			bsync.setEmail_id(rs.getString("email_id"));
-			bsync.setFinal_verdict(rs.getString("final_verdict"));
-			bsync.setRound_id(rs.getInt("round_id"));
-			bsync.setDate(rs.getString("date"));
+		public turbodata mapRow(ResultSet rs, int rowNum) throws SQLException {
+			turbodata tdata  = new turbodata();
+			tdata.setInterview_id(rs.getInt("interview_id"));
+			tdata.setApplicant_name(rs.getString("applicant_name"));
+			tdata.setEmail_id(rs.getString("email_id"));
+			tdata.setFinal_verdict(rs.getString("final_verdict"));
+			tdata.setRound_id(rs.getInt("round_id"));
+			tdata.setDate(rs.getString("date"));
 			
 			
 			
 			
-			bsync.settime(rs.getString("time"));
-			return bsync;
+			tdata.setTime(rs.getString("time"));
+			return tdata;
 		}
 	}
 }

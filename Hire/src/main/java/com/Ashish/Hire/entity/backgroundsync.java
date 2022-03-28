@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 public class backgroundsync {
 	
 	@Id	
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+
 	 private int interview_id;
 	
 	private String applicant_name;

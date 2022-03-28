@@ -6,27 +6,27 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.Ashish.Hire.dao.turbodatadao;
-import com.Ashish.Hire.entity.turbodata;
+import com.Ashish.Hire.dao.Bdao;
+
+import com.Ashish.Hire.entity.backgroundsync;
 
 
 @Component
-public class MyCustomWriter implements ItemWriter<turbodata> {
+public class MyCustomWriter implements ItemWriter<backgroundsync> {
 	
 	@Autowired
-	turbodatadao tdao ;
+	Bdao bd ;
 	
 	
 	
 	@Override
-	public void write(List<? extends turbodata> list) throws Exception {
+	public void write(List<? extends backgroundsync> list) throws Exception {
 		// TODO Auto-generated method stub
-		for (turbodata data : list) {
-//			System.out.println("MyCustomWriter    : Writing data    : " + data.getFinal_verdict()+" : "+data.getInterview_id()+" : "+data.getEmail_id()+" : "+data.getRound_id()+" "
-//					+ ": "+data.getTime()+" : "+data.getApplicant_name()+" : "+data.getDate());
-			System.out.println("MyCustomWriter    : Writing data    : " +data.getInterview_id() +" : "+data.getApplicant_name()+" : "+data.getEmail_id()+" : "+data.getFinal_verdict()+" "
-					+ ": "+data.getRound_id()+" : "+data.getDate()+" : "+data.getTime());
-			tdao.save(data);
+		for (backgroundsync data : list) {
+			
+			System.out.println("MyCustomWriter    : Writing data    : " +data.getApplicant_name()+" : "+data.getEmail_id()+" : "+data.getFinal_verdict()+" "
+					+ ": "+data.getRound_id()+" : "+data.getDate()+" : "+data.gettime());
+			bd.save(data);
 		}
 		
 	}

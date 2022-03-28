@@ -12,8 +12,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class turbodata {
 	
 	@Id	
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	 private int interview_id;
+
+	private int interview_id;
 	
 	private String applicant_name;
 	
